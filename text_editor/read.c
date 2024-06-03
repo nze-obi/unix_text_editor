@@ -6,6 +6,7 @@
 int cpuread(char arg[]){
 int fd,size,sumread, sumfread,fritee;
 
+
 if((fptr= fopen(arg, "a+"))== NULL){
 printf("\n failed\n");
 exit(1);
@@ -36,6 +37,7 @@ continue;
 
 sumread=fwrite(buffer,1, fd,fptr);
 fclose(fptr);
+
 }
 return 0;
 }
