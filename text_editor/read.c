@@ -10,7 +10,7 @@ if((fptr= fopen(arg, "a+"))== NULL){
 printf("\n failed\n");
 exit(1);
 }
-
+system("clear");
 sumfread=fread(buffer,1, sizeof(buffer), fptr);
 fclose(fptr);
 fritee=write(1,buffer,sumfread);
