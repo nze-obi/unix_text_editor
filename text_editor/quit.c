@@ -5,7 +5,7 @@
 
 int quit(){
 
-       printf("\n exiting program\n");
+       //printf("\nexiting program\n");
         exit(1);
 
 	return 0;

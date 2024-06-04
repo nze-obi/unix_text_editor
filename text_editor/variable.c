@@ -2,3 +2,4 @@
 FILE *fptr;
 char buffer[10000];
 char buff[1000];
+int i;

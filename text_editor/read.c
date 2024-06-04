@@ -4,7 +4,7 @@
 #include <string.h>
 #include <unistd.h>
 int cpuread(char arg[]){
-int fd,size,sumread, sumfread,fritee;
+int n;
 
 
 if((fptr= fopen(arg, "a+"))== NULL){
@@ -12,30 +12,44 @@ printf("\n failed\n");
 exit(1);
 }
 system("clear");
-sumfread=fread(buffer,1, sizeof(buffer), fptr);
+fseek(fptr,0,SEEK_END);
+n=ftell(fptr);
+
+fseek(fptr,0,SEEK_SET);
+i=1;
+while(fgets(buffer,n,fptr)){
+	printf("%d. ",i++);
+	fputs(buffer,stdout);
+}
+
 fclose(fptr);
-fritee=write(1,buffer,sumfread);
-bzero((char *)buffer, sumfread);
+
+
+bzero((char *)buffer, n);
 
 
 while(1<5){
-bzero((char *)buffer,size);
+bzero((char *)buffer,sizeof(buffer));
 if((fptr= fopen(arg, "a+"))== NULL){
 printf("\n failed\n");
 exit(1);
 }
 
-fd=read(0,buffer,sizeof(buffer));
+printf("%d. ",i++);
+fgets(buffer,4000,stdin);
+
 
 if((strncmp("quit.",buffer,5))==0){
+	system("clear");
 	quit();
 }
 else if((strncmp("dl.",buffer,3))==0){
+i=1;	
 delete_line(arg);
 continue;
 }
 
-sumread=fwrite(buffer,1, fd,fptr);
+fputs(buffer, fptr);
 fclose(fptr);
 
 }
