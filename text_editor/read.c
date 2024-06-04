@@ -48,6 +48,10 @@ i=1;
 delete_line(arg);
 continue;
 }
+else if((strncmp("da.",buffer,3))==0){
+delete_all(arg);
+continue;
+}
 
 fputs(buffer, fptr);
 fclose(fptr);
