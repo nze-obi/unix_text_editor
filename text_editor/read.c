@@ -4,28 +4,22 @@
 #include <string.h>
 #include <unistd.h>
 int cpuread(char arg[]){
-int n;
-
 
 if((fptr= fopen(arg, "a+"))== NULL){
 printf("\n failed\n");
 exit(1);
 }
 system("clear");
-fseek(fptr,0,SEEK_END);
-n=ftell(fptr);
-
-fseek(fptr,0,SEEK_SET);
 i=1;
-while(fgets(buffer,n,fptr)){
-	printf("%d. ",i++);
-	fputs(buffer,stdout);
+while(fgets(buffer,10000,fptr)){
+	printf("%d. ",i++);  
+	fputs(buffer,stdout);  
 }
 
 fclose(fptr);
 
 
-bzero((char *)buffer, n);
+bzero((char *)buffer, 10000);
 
 
 while(1<5){
